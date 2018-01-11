@@ -1,0 +1,47 @@
+<div class="container top-30">
+  <div class="row">
+    <div class="col-md-4">
+      <select #selectElem (change)="task(selectElem.value)" class="custom-select button-rigth">
+        <option value="0">BÚSQUEDA</option>
+        <option value="1">TODOS</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <h4 class="text-center">LISTADO DE LIBROS</h4>
+    </div>
+    <div class="col-md-4">
+        <div class="input-group" *ngIf="numberTask == 0" >
+            <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" placeholder="Buscar" (input)="onSearchChange($event.target.value)">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container top-10">
+  <div class="row">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th></th>
+          <th scope="col">Autor</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Fecha de Publicación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of libros" >
+          <th></th>
+          <th scope="row">{{item.autor}}</th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.fecha}}</td>
+        </tr>
+        <tr *ngIf="search" align="center">
+          <td colspan="4">
+            <h4><span>NO HAY RESULTADOS EN SU BÚSQUEDA</span></h4>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>

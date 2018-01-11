@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.top-30{
+  padding-top: 30px;
+}
+
+.top-10{
+  padding-top: 10px;
+}
